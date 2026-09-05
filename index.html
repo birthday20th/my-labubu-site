@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love 🤍</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap');
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#08060b;color:#fff;
+  font-family:'Amiri',serif;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(155,82,137,.20),transparent 28%),
+    radial-gradient(circle at 80% 70%,rgba(112,60,110,.18),transparent 30%),
+    linear-gradient(135deg,#09060d,#1b0d1c 48%,#08060b);
+}
+body:after{
+  content:"";position:fixed;inset:0;z-index:-1;opacity:.55;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%,#fff,transparent),
+    radial-gradient(1px 1px at 30% 70%,#fff,transparent),
+    radial-gradient(1px 1px at 52% 28%,#fff,transparent),
+    radial-gradient(1px 1px at 74% 17%,#fff,transparent),
+    radial-gradient(1px 1px at 91% 66%,#fff,transparent),
+    radial-gradient(1px 1px at 42% 88%,#fff,transparent),
+    radial-gradient(1px 1px at 17% 92%,#fff,transparent);
+  background-size:240px 240px;animation:stars 16s linear infinite;
+}
+@keyframes stars{to{transform:translateY(-30px)}}
+
+section{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:60px 18px;position:relative;
+}
+.wrap{width:min(900px,94vw);text-align:center}
+.english{font-family:'Cormorant Garamond',serif;direction:ltr}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:600}
+h1{font-size:clamp(54px,10vw,100px);margin:0 0 8px}
+h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
+.sub{color:#ddd0dc;font-size:18px}
+.heart{font-size:22px;letter-spacing:5px;margin:22px 0}
+.btn{
+  display:inline-block;border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.07);color:white;border-radius:999px;
+  padding:12px 27px;text-decoration:none;cursor:pointer;
+  transition:.3s;backdrop-filter:blur(8px);font-family:inherit;font-size:16px;
+}
+.btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.13)}
+.card{
+  width:min(760px,94vw);max-height:76vh;overflow:auto;text-align:right;
+  padding:35px 34px;border:1px solid rgba(255,255,255,.14);
+  background:rgba(15,10,17,.64);box-shadow:0 20px 80px rgba(0,0,0,.35);
+  backdrop-filter:blur(12px);border-radius:4px;
+}
+.card::-webkit-scrollbar{width:4px}.card::-webkit-scrollbar-thumb{background:#8e6a89;border-radius:8px}
+.card p{font-size:20px;line-height:2;margin:0 0 22px;color:#eee5ed}
+.card .title{text-align:center;font-family:'Cormorant Garamond',serif;font-size:44px;margin-bottom:20px;direction:ltr}
+.fade{animation:fadeUp 1.2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+
+.loader{
+  width:260px;height:8px;border-radius:10px;background:#2d2430;overflow:hidden;margin:25px auto;
+}
+.loader span{display:block;height:100%;width:0;background:#eee;animation:load 2.4s forwards}
+@keyframes load{to{width:100%}}
+
+.countdown{display:flex;gap:12px;justify-content:center;direction:ltr;margin:28px 0}
+.time{min-width:82px;padding:14px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px}
+.time b{font:600 31px 'Cormorant Garamond';display:block}.time small{color:#cdbdca}
+
+.memories{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:25px auto}
+.photo{
+  aspect-ratio:1/1.08;border:8px solid #eee9e7;background:#eee9e7;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);transform:rotate(-2deg);
+  overflow:hidden;color:#5e4858;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:20px;
+}
+.photo:nth-child(2){transform:rotate(3deg);margin-top:15px}
+.photo:nth-child(3){transform:rotate(-4deg)}
+.photo:nth-child(4){transform:rotate(4deg);margin-top:-8px}
+.photo:nth-child(5){transform:rotate(-1deg)}
+.photo:nth-child(6){transform:rotate(3deg);margin-top:10px}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+.final-photo{
+  width:min(500px,90vw);aspect-ratio:4/3;margin:25px auto;
+  border:8px solid #eee9e7;background:#eee9e7;overflow:hidden;
+}
+.final-photo img{width:100%;height:100%;object-fit:cover}
+.note{font-size:22px;line-height:1.9;color:#eee0ec;max-width:700px;margin:auto}
+
+.scroll{position:absolute;bottom:22px;font-size:13px;color:#aaa;letter-spacing:2px}
+.arrow{display:block;margin-top:6px;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(6px)}}
+
+@media(max-width:600px){
+  .card{padding:25px 20px}.card p{font-size:17px;line-height:2}
+  .memories{grid-template-columns:repeat(2,1fr);gap:10px}
+  .time{min-width:67px}.time b{font-size:25px}
+}
+</style>
+</head>
+<body>
+
+<section id="home">
+  <div class="wrap fade">
+    <div class="heart">✦ ✦ ✦</div>
+    <h1 class="english">Happy Birthday</h1>
+    <div class="sub english">To someone very special to my heart</div>
+    <div class="heart">♡</div>
+    <a class="btn" href="#letter">Read my letter</a>
+  </div>
+  <div class="scroll">SCROLL <span class="arrow">↓</span></div>
+</section>
+
+<section id="letter">
+  <div class="card fade">
+    <div class="title">HAPPY BIRTHDAY my love 🤍🎂</div>
+
+    <p>كل سنه وانت طيب يا احلى حاجه حصلت بحياتي ويا رب تكون دايم بخير وسعيد وايامك كلها تكون حلوه زي قلبك واحلى من يتم الـ20 عليك يا رب 🥹</p>
+
+    <p>يارب السنه الجديده من عمرك تكون مليانه فرح ونجاح وراحة بال ويارب وتحقق فيها كل حاجه نفسك فيها وما تشوف فيها غير الايام الحلوه</p>
+
+    <p>حقيقي لسه مش مستوعبه انك اعترفتلي بحبك وان احنا بقينا سوا وكل ما افتكر البدايه ابتسم بفتكر لما كنت بقعد ارخم عليك وانت بتلعب ولما كنا بنقعد نلعب روبلكس ونضحك على حاجات تافهه هي بجد بقت من احلى ذكرياتي</p>
+
+    <p>انت بجد من احلى الحاجات اللي حصلتلي ومش عارفه اوصف قد ايه وجودك في حياتي فرق معايا بحب وجودك كلامك اهتمامك وحتى تفاصيلك الصغيره اللي يمكن انت مش واخد بالك منها</p>
+
+    <p>عايزاك تعرف انك غالي عليا جدا جدا وان مشاعري ليك مبتتوصفش ودايما أنا بتمنى افضل اشوفك مبسوط واكون موجوده في كل لحظه حلوه في حياتك ربنا يخليك ليا ويبعد عنك اي حاجه ممكن تزعلك ويكتبلك دايما الخير والفرح اللي تستحقه</p>
+
+    <p>وأهم حاجه في يومك ده عايزاك تعرف إن في حد بيتمنى لك كل الخير من قلبه وبيحبك جدا جدا وانا الشخص ده 🥹🤍</p>
+
+    <p class="english" style="text-align:center;font-size:25px">
+      Happy 20th birthday my love, I hope this year is as beautiful as you are to me. 🤍🎂
+    </p>
+    <div style="text-align:center"><a class="btn" href="#coming">Continue ♡</a></div>
+  </div>
+</section>
+
+<section id="coming">
+  <div class="wrap fade">
+    <h2 class="english">Your Special Day</h2>
+    <p class="sub">A little countdown to the most beautiful day 🤍</p>
+    <div class="countdown">
+      <div class="time"><b id="days">20</b><small>DAYS</small></div>
+      <div class="time"><b id="hours">00</b><small>HOURS</small></div>
+      <div class="time"><b id="mins">00</b><small>MINUTES</small></div>
+      <div class="time"><b id="secs">00</b><small>SECONDS</small></div>
+    </div>
+    <div class="loader"><span></span></div>
+    <a class="btn" href="#memories">Our memories ♡</a>
+  </div>
+</section>
+
+<section id="memories">
+  <div class="wrap fade">
+    <h2 class="english">Our Memories</h2>
+    <p class="sub">Some little moments that became my favorite memories.</p>
+    <div class="memories">
+      <div class="photo"><img src="images/photo1.png" alt="Memory 1" onerror="this.style.display='none'">♡</div>
+      <div class="photo"><img src="images/photo2.png" alt="Memory 2" onerror="this.style.display='none'">♡</div>
+      <div class="photo"><img src="images/photo3.png" alt="Memory 3" onerror="this.style.display='none'">♡</div>
+      <div class="photo"><img src="images/photo4.png" alt="Memory 4" onerror="this.style.display='none'">♡</div>
+      <div class="photo"><img src="images/photo5.png" alt="Memory 5" onerror="this.style.display='none'">♡</div>
+      <div class="photo"><img src="images/photo6.png" alt="Memory 6" onerror="this.style.display='none'">♡</div>
+    </div>
+    <a class="btn" href="#final">One last thing ♡</a>
+  </div>
+</section>
+
+<section id="final">
+  <div class="wrap fade">
+    <h2 class="english">A Moment For You</h2>
+    <div class="final-photo">
+      <img src="images/final.png" alt="Our favorite photo" onerror="this.style.display='none'">
+      <div style="height:100%;display:flex;align-items:center;justify-content:center;color:#604d5c;font:24px 'Cormorant Garamond'">ضعوا أجمل صورة هنا 🤍</div>
+    </div>
+    <p class="note">كل عام وانت حبيبي، وكل عام وانت أجمل صدفة وأحلى ذكرى وأغلى شخص. أتمنى تكون سنتك العشرين بداية لكل شيء جميل تستحقه. 🤍</p>
+    <div class="heart">♡ ♡ ♡</div>
+    <div class="english" style="font-size:25px">Happy 20th Birthday, My Love 🤍🎂</div>
+  </div>
+</section>
+
+<script>
+// عدّاد بسيط: غيّري تاريخ الميلاد هنا إذا تبين العدّاد يكون حقيقي.
+// مثال: new Date("2026-09-06T00:00:00")
+const birthday = new Date("2026-09-06T00:00:00").getTime();
+
+function tick(){
+  const now = Date.now();
+  let diff = Math.max(0, birthday-now);
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
+  document.getElementById("days").textContent=String(d).padStart(2,"0");
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("mins").textContent=String(m).padStart(2,"0");
+  document.getElementById("secs").textContent=String(s).padStart(2,"0");
+}
+tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
