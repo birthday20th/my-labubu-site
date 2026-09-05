@@ -1,921 +1,753 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday My Love ♡</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<title>Happy Birthday My Love 🤍</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap');
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    background:
-        radial-gradient(circle at top, #4b163e 0%, #210d28 45%, #0d0714 100%);
-    color:#fff;
-    font-family:'Cormorant Garamond',serif;
-    overflow-x:hidden;
+  margin:0;background:#0d0612;color:#fff;
+  font-family:'Amiri',serif;overflow-x:hidden;position:relative;
 }
 
-/* STARS */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-        radial-gradient(#fff 1px,transparent 1px),
-        radial-gradient(#fff 1px,transparent 1px);
-    background-size:80px 80px,120px 120px;
-    background-position:0 0,40px 50px;
-    opacity:.25;
-    pointer-events:none;
-    z-index:-1;
+/* الخلفية المدمجة بالوردي الرومانسي */
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(219, 112, 147, 0.35),transparent 45%),
+    radial-gradient(circle at 80% 70%,rgba(186, 85, 211, 0.28),transparent 50%),
+    radial-gradient(circle at 50% 50%,rgba(255, 182, 193, 0.2),transparent 55%),
+    linear-gradient(135deg,#0d0612,#210b25 48%,#0a050e);
 }
 
-/* GENERAL */
+/* نجوم تتلألأ */
+body:after{
+  content:"";position:fixed;inset:0;z-index:-1;opacity:.55;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%,#fff,transparent),
+    radial-gradient(1px 1px at 30% 70%,#fff,transparent),
+    radial-gradient(1px 1px at 52% 28%,#fff,transparent),
+    radial-gradient(1px 1px at 74% 17%,#fff,transparent),
+    radial-gradient(1px 1px at 91% 66%,#fff,transparent),
+    radial-gradient(1px 1px at 42% 88%,#fff,transparent),
+    radial-gradient(1px 1px at 17% 92%,#fff,transparent);
+  background-size:240px 240px;animation:stars 16s linear infinite;
+}
+@keyframes stars{to{transform:translateY(-30px)}}
+
+/* تساقط القلوب */
+.heart-particle {
+  position: fixed;
+  top: -10%;
+  font-size: 18px;
+  color: rgba(255, 182, 193, 0.75);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
 
 section{
-    min-height:100vh;
-    width:100%;
-    padding:70px 20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:60px 18px;position:relative;z-index:1;
 }
-
-h1,h2,h3{
-    font-weight:600;
-}
-
-h1{
-    font-size:clamp(45px,9vw,90px);
-}
-
-h2{
-    font-size:clamp(35px,7vw,65px);
-}
-
-p{
-    font-size:22px;
-    line-height:1.8;
-}
-
+.wrap{width:min(900px,94vw);text-align:center}
+.english{font-family:'Cormorant Garamond',serif;direction:ltr}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:600}
+h1{font-size:clamp(54px,10vw,100px);margin:0 0 8px}
+h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
+.sub{color:#edd2e3;font-size:18px}
+.heart{font-size:22px;letter-spacing:5px;margin:22px 0}
 .btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:13px 30px;
-    border:1px solid rgba(255,255,255,.5);
-    border-radius:50px;
-    color:white;
-    text-decoration:none;
-    font-size:20px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(8px);
-    transition:.3s;
+  display:inline-block;border:1px solid rgba(255,192,203,.45);
+  background:rgba(255,255,255,.12);color:white;border-radius:999px;
+  padding:12px 27px;text-decoration:none;cursor:pointer;
+  transition:.3s;backdrop-filter:blur(8px);font-family:inherit;font-size:16px;
+}
+.btn:hover{transform:translateY(-3px);background:rgba(255,182,193,.35)}
+
+/* قسم أمنية العيد والكيكة والشموع */
+.wish-container {
+  background: rgba(25, 12, 30, 0.75);
+  border: 1px solid rgba(255, 182, 193, 0.35);
+  backdrop-filter: blur(15px);
+  padding: 40px 20px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
 
-.btn:hover{
-    background:rgba(255,255,255,.18);
-    transform:translateY(-3px);
+/* الكيكة والشموع المجهزة */
+.cake-wrapper {
+  position: relative;
+  width: 220px;
+  height: 200px;
+  margin: 25px auto;
+  cursor: pointer;
+}
+.cake-base {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 90px;
+  background: linear-gradient(to bottom, #ff9bb2, #f7628d);
+  border-radius: 15px 15px 8px 8px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+.cake-top {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: #ffe3ed;
+  border-radius: 15px 15px 5px 5px;
+}
+.candles-group {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 22px;
+}
+.candle-item {
+  position: relative;
+  width: 12px;
+  height: 50px;
+  background: repeating-linear-gradient(45deg, #fff, #fff 6px, #f7628d 6px, #f7628d 12px);
+  border-radius: 4px;
+}
+.flame-item {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 22px;
+  background: #ffda79;
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 12px #ffda79, 0 0 22px #ff5252;
+  animation: flameFlicker 0.6s infinite alternate;
+  transition: all 0.4s ease;
+}
+@keyframes flameFlicker {
+  0% { transform: translateX(-50%) scale(1); }
+  100% { transform: translateX(-50%) scale(1.18) rotate(3deg); }
+}
+.flame-item.off {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
 }
 
-/* HOME */
-
-.home-sub{
-    margin-top:10px;
-    font-size:25px;
-    color:#f6c5df;
+/* الهدية والدبدوب الوردي */
+.gift-box-area {
+  display: none;
+  margin-top: 20px;
+  animation: giftFade 0.8s ease-in-out forwards;
+}
+@keyframes giftFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pink-teddy {
+  font-size: 85px;
+  line-height: 1;
+  animation: teddyBounce 2s infinite ease-in-out;
+  margin-bottom: 10px;
+}
+@keyframes teddyBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
 }
 
-.scroll{
-    margin-top:50px;
-    font-size:18px;
-    opacity:.7;
+.card{
+  width:min(760px,94vw);max-height:76vh;overflow:auto;text-align:right;
+  padding:35px 34px;border:1px solid rgba(255,255,255,.14);
+  background:rgba(20,10,24,.68);box-shadow:0 20px 80px rgba(0,0,0,.4);
+  backdrop-filter:blur(12px);border-radius:12px;
+}
+.card::-webkit-scrollbar{width:4px}.card::-webkit-scrollbar-thumb{background:#b178a2;border-radius:8px}
+.card p{font-size:20px;line-height:2;margin:0 0 22px;color:#f3e8f4}
+.card .title{text-align:center;font-family:'Cormorant Garamond',serif;font-size:44px;margin-bottom:20px;direction:ltr}
+.fade{animation:fadeUp 1.2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+
+.loader{
+  width:260px;height:8px;border-radius:10px;background:#351f38;overflow:hidden;margin:25px auto;
+}
+.loader span{display:block;height:100%;width:0;background:#ffc0cb;animation:load 2.4s forwards}
+@keyframes load{to{width:100%}}
+
+.countdown{display:flex;gap:12px;justify-content:center;direction:ltr;margin:28px 0}
+.time{min-width:82px;padding:14px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,192,203,.2);border-radius:8px}
+.time b{font:600 31px 'Cormorant Garamond';display:block}.time small{color:#e8cbe0}
+
+.memories{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:25px auto}
+.photo{
+  aspect-ratio:1/1.08;border:8px solid #eee9e7;background:#eee9e7;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);transform:rotate(-2deg);
+  overflow:hidden;color:#5e4858;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:20px;
+}
+.photo:nth-child(2){transform:rotate(3deg);margin-top:15px}
+.photo:nth-child(3){transform:rotate(-4deg)}
+.photo:nth-child(4){transform:rotate(4deg);margin-top:-8px}
+.photo:nth-child(5){transform:rotate(-1deg)}
+.photo:nth-child(6){transform:rotate(3deg);margin-top:10px}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* مشغل الأغنية والدائرة المتحركة */
+.player-card {
+  background: rgba(25, 12, 30, 0.7);
+  border: 1px solid rgba(255, 182, 193, 0.3);
+  backdrop-filter: blur(15px);
+  padding: 35px 25px;
+  border-radius: 20px;
+  max-width: 450px;
+  margin: 30px auto;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+.vinyl-container {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinyl-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #333 18%, #111 20%, #222 40%, #111 60%, #222 80%, #000 100%);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 8s linear infinite;
+  animation-play-state: paused;
+}
+.vinyl-disc.playing {
+  animation-play-state: running;
+}
+.vinyl-center {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #ffb6c1;
+  border: 4px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+.visualizer-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 182, 193, 0.4);
+  animation: pulseRing 2s ease-in-out infinite alternate;
+  opacity: 0.5;
+}
+.playing + .visualizer-ring {
+  opacity: 1;
+  animation: pulseRing 0.8s ease-in-out infinite alternate;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes pulseRing {
+  0% { transform: scale(0.98); border-color: rgba(255, 182, 193, 0.3); }
+  100% { transform: scale(1.08); border-color: rgba(255, 182, 193, 0.9); box-shadow: 0 0 18px rgba(255,182,193,0.5); }
 }
 
-/* WISH */
-
-.wish-title{
-    color:#f8c7e0;
-    margin-bottom:35px;
+.song-info {
+  margin-bottom: 20px;
+}
+.song-title {
+  font-size: 26px;
+  margin: 0 0 5px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+}
+.artist-name {
+  font-size: 15px;
+  color: #e2b2d4;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 1px;
 }
 
-.cake{
-    position:relative;
-    width:220px;
-    height:150px;
-    margin:20px auto;
+.play-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: #ffb6c1;
+  color: #111;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+}
+.play-btn:hover {
+  transform: scale(1.08);
+  background: #fff;
 }
 
-.cake-body{
-    position:absolute;
-    bottom:0;
-    left:10px;
-    width:200px;
-    height:100px;
-    background:#e7a5c5;
-    border-radius:15px 15px 25px 25px;
-    box-shadow:0 12px 30px rgba(0,0,0,.3);
+/* تصميم قسم السؤال الأبدي التفاعلي */
+.question-subtag {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #e2b2d4;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.forever-img-wrapper {
+  width: 170px;
+  height: 170px;
+  margin: 25px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.3);
+  background: #111;
+}
+.forever-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.interactive-yes-area {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  min-height: 50px;
+}
+.yes-pink-btn {
+  background: #ff6584;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 36px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(255, 101, 132, 0.4);
+  transition: 0.3s ease;
+  font-family: 'Cormorant Garamond', serif;
+}
+.yes-pink-btn:hover {
+  transform: scale(1.05);
+  background: #ff476d;
+}
+.response-tag {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #fff;
+  font-family: sans-serif;
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+
+.final-photo{
+  width:min(500px,90vw);aspect-ratio:4/3;margin:25px auto;
+  border:8px solid #eee9e7;background:#eee9e7;overflow:hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 8px;
+}
+.final-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+
+.finale-hearts-box {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+.f-heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  color: #ff758c;
+  animation: floatHeart 3s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
+  100% { transform: translateY(-300px) scale(1.2); opacity: 0; }
 }
 
-.cake-top{
-    position:absolute;
-    top:35px;
-    left:0;
-    width:220px;
-    height:45px;
-    background:#fff0f7;
-    border-radius:50%;
+.note{font-size:22px;line-height:1.9;color:#eee0ec;max-width:700px;margin:auto}
+
+.scroll{position:absolute;bottom:22px;font-size:13px;color:#aaa;letter-spacing:2px}
+.arrow{display:block;margin-top:6px;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(6px)}}
+
+#yt-player-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.candle{
-    position:absolute;
-    top:0;
-    width:14px;
-    height:45px;
-    background:#f7d7e8;
-    border-radius:5px;
+@media(max-width:600px){
+  .card{padding:25px 20px}.card p{font-size:17px;line-height:2}
+  .memories{grid-template-columns:repeat(2,1fr);gap:10px}
+  .time{min-width:67px}.time b{font-size:25px}
 }
-
-.candle:nth-child(1){
-    left:55px;
-}
-
-.candle:nth-child(2){
-    left:103px;
-}
-
-.candle:nth-child(3){
-    right:55px;
-}
-
-.flame{
-    position:absolute;
-    width:15px;
-    height:22px;
-    background:#ffd36b;
-    border-radius:50% 50% 50% 50%;
-    top:-22px;
-    left:-.5px;
-    box-shadow:0 0 15px #ffd36b;
-    animation:flicker .7s infinite alternate;
-}
-
-@keyframes flicker{
-    from{transform:scale(1);}
-    to{transform:scale(1.15);}
-}
-
-.gift{
-    margin-top:40px;
-    display:none;
-}
-
-.teddy{
-    font-size:80px;
-}
-
-/* LETTER */
-
-.letter-box{
-    max-width:750px;
-    padding:45px 30px;
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:25px;
-    background:rgba(255,255,255,.06);
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
-
-.letter-box h2{
-    color:#f5b7d7;
-    margin-bottom:25px;
-}
-
-.letter-box p{
-    font-family:'Amiri',serif;
-    font-size:22px;
-}
-
-/* COUNTDOWN */
-
-.count-title{
-    color:#f6c3df;
-    margin-bottom:30px;
-}
-
-.countdown{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.time-box{
-    width:100px;
-    padding:20px 10px;
-    border-radius:18px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-}
-
-.time-box span{
-    display:block;
-    font-size:42px;
-}
-
-.time-box small{
-    font-size:16px;
-    opacity:.7;
-}
-
-/* MEMORIES */
-
-.memories-title{
-    color:#f8c8e1;
-    margin-bottom:35px;
-}
-
-.gallery{
-    width:min(1000px,100%);
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.gallery img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,.15);
-    transition:.3s;
-}
-
-.gallery img:hover{
-    transform:scale(1.03);
-}
-
-@media(max-width:700px){
-    .gallery{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .gallery img{
-        height:200px;
-    }
-}
-
-/* SONG */
-
-.song-card{
-    width:min(500px,100%);
-    padding:45px 25px;
-    border-radius:30px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.15);
-}
-
-.vinyl{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    margin:0 auto 30px;
-    background:
-        repeating-radial-gradient(
-            circle,
-            #111 0px,
-            #111 5px,
-            #222 6px,
-            #111 8px
-        );
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.5);
-    animation:spin 7s linear infinite;
-}
-
-.vinyl-center{
-    width:45px;
-    height:45px;
-    background:#e9a6c7;
-    border-radius:50%;
-}
-
-@keyframes spin{
-    from{transform:rotate(0);}
-    to{transform:rotate(360deg);}
-}
-
-iframe{
-    display:none;
-}
-
-/* FOREVER */
-
-.forever-title{
-    color:#f8c7df;
-    margin-bottom:10px;
-}
-
-.important{
-    letter-spacing:4px;
-    font-size:16px;
-    opacity:.75;
-    margin-bottom:15px;
-}
-
-.forever-card{
-    width:min(650px,100%);
-    padding:35px 25px;
-    border-radius:30px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-}
-
-.forever-image{
-    width:min(430px,100%);
-    height:330px;
-    margin:25px auto;
-    border-radius:22px;
-    overflow:hidden;
-    background:rgba(255,255,255,.05);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.forever-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.forever-placeholder{
-    height:100%;
-    width:100%;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:10px;
-    font-size:20px;
-    opacity:.7;
-}
-
-.forever-placeholder span{
-    font-size:60px;
-}
-
-.question{
-    font-size:34px;
-    color:#fff;
-    margin:20px 0;
-}
-
-.answer-buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.yes-btn{
-    cursor:pointer;
-    border:none;
-    padding:14px 30px;
-    border-radius:50px;
-    background:#e9a6c7;
-    color:#2a1024;
-    font-family:inherit;
-    font-size:20px;
-    transition:.3s;
-}
-
-.yes-btn:hover{
-    transform:scale(1.05);
-}
-
-.yes-message{
-    display:none;
-    margin-top:30px;
-    font-size:30px;
-    color:#f8c7df;
-}
-
-/* FINAL */
-
-.final-image{
-    width:min(550px,100%);
-    max-height:500px;
-    object-fit:cover;
-    border-radius:30px;
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
-    border:1px solid rgba(255,255,255,.2);
-}
-
-.final-title{
-    margin-top:35px;
-    color:#f8c7df;
-}
-
-.final-text{
-    max-width:700px;
-    margin-top:15px;
-    font-family:'Amiri',serif;
-}
-
-/* FLOATING HEARTS */
-
-.floating-heart{
-    position:fixed;
-    bottom:-30px;
-    color:#fff;
-    opacity:.7;
-    pointer-events:none;
-    animation:floatUp linear forwards;
-    z-index:20;
-}
-
-@keyframes floatUp{
-    from{
-        transform:translateY(0) rotate(0);
-        opacity:.8;
-    }
-    to{
-        transform:translateY(-110vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-.burst-heart{
-    position:fixed;
-    pointer-events:none;
-    font-size:25px;
-    z-index:100;
-    animation:burst 1.5s ease-out forwards;
-}
-
-@keyframes burst{
-    from{
-        transform:translate(0,0) scale(1);
-        opacity:1;
-    }
-    to{
-        transform:translate(var(--x),var(--y)) scale(.3);
-        opacity:0;
-    }
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- HOME -->
-
 <section id="home">
-
-    <div>
-        <p style="font-size:18px;letter-spacing:5px;">A LITTLE SURPRISE FOR YOU</p>
-
-        <h1>HAPPY BIRTHDAY</h1>
-
-        <h2 style="color:#f4b8d8;">my love ♡</h2>
-
-        <p class="home-sub">
-            Today is all about you.
-        </p>
-
-        <p class="scroll">
-            ↓ scroll down ↓
-        </p>
-    </div>
-
+  <div class="wrap fade">
+    <div class="heart">✦ ✦ ✦</div>
+    <h1 class="english">Happy Birthday</h1>
+    <div class="sub english">To someone very special to my heart</div>
+    <div class="heart">♡</div>
+    <a class="btn" href="#wish">Start Here ♡</a>
+  </div>
+  <div class="scroll">SCROLL <span class="arrow">↓</span></div>
 </section>
-
-
-<!-- WISH -->
 
 <section id="wish">
-
-    <h2 class="wish-title">Make a wish ♡</h2>
-
-    <p>Close your eyes and make your birthday wish...</p>
-
-    <div class="cake" onclick="blowCandles()">
-
-        <div class="candle">
-            <div class="flame"></div>
+  <div class="wrap fade">
+    <div class="wish-container">
+      <h2 class="english" style="font-size: clamp(32px, 5vw, 48px); margin-bottom: 10px;">Before we start, make a wish</h2>
+      <p class="sub" id="wishHint">اضغط على الكيكة لإطفاء الشموع 🎂✨</p>
+      
+      <div class="cake-wrapper" onclick="blowCandles()">
+        <div class="candles-group">
+          <div class="candle-item"><div class="flame-item flame"></div></div>
+          <div class="candle-item"><div class="flame-item flame"></div></div>
+          <div class="candle-item"><div class="flame-item flame"></div></div>
         </div>
-
-        <div class="candle">
-            <div class="flame"></div>
+        <div class="cake-base">
+          <div class="cake-top"></div>
         </div>
+      </div>
 
-        <div class="candle">
-            <div class="flame"></div>
-        </div>
-
-        <div class="cake-top"></div>
-        <div class="cake-body"></div>
-
+      <div class="gift-box-area" id="giftArea">
+        <div class="pink-teddy">🧸🩷</div>
+        <p class="sub" style="color: #ffb6c1; font-size: 20px;">Wish Granted! Here is your pink teddy 🎁✨</p>
+        <br>
+        <a class="btn" href="#letter">Read my letter ♡</a>
+      </div>
     </div>
-
-    <p style="font-size:16px;opacity:.6;">
-        Click the candles ♡
-    </p>
-
-    <div class="gift" id="gift">
-
-        <div class="teddy">🧸</div>
-
-        <p style="margin-top:15px;">
-            Your birthday gift is waiting...
-        </p>
-
-        <a class="btn" href="#letter">
-            Open your letter ♡
-        </a>
-
-    </div>
-
+  </div>
 </section>
-
-
-<!-- LETTER -->
 
 <section id="letter">
+  <div class="card fade">
+    <div class="title">HAPPY BIRTHDAY my love 🤍🎂</div>
 
-    <div class="letter-box">
+    <p>كل سنه وانت طيب يا احلى حاجه حصلت بحياتي ويا رب تكون دايم بخير وسعيد وايامك كلها تكون حلوه زي قلبك واحلى من يتم الـ20 عليك يا رب 🥹</p>
 
-        <h2>To my dearest love ♡</h2>
+    <p>يارب السنه الجديده من عمرك تكون مليانه فرح ونجاح وراحة بال ويارب وتحقق فيها كل حاجه نفسك فيها وما تشوف فيها غير الايام الحلوه</p>
 
-        <p>
-            HAPPY BIRTHDAY my love 🤍<br><br>
+    <p>حقيقي لسه مش مستوعبه انك اعترفتلي بحبك وان احنا بقينا سوا وكل ما افتكر البدايه ابتسم بفتكر لما كنت بقعد ارخم عليك وانت بتلعب ولما كنا بنقعد نلعب روبلكس ونضحك على حاجات تافهه هي بجد بقت من احلى ذكرياتي</p>
 
-            كل سنه وانت طيب يحبي، بتمنى تكون بخير وكويس دايمًا.
-            أحلى من يتم الـ20 يارب، وأيامك الجاية تكون كلها فرح وسعادة.
-            <br><br>
+    <p>انت بجد من احلى الحاجات اللي حصلتلي ومش عارفه اوصف قد ايه وجودك في حياتي فرق معايا بحب وجودك كلامك اهتمامك وحتى تفاصيلك الصغيره اللي يمكن انت مش واخد بالك منها</p>
 
-            حقيقي لسه مش مستوعبة إن انت اعترفتلي بحبك
-            وإن إحنا سوا.
-            <br><br>
+    <p>عايزاك تعرف انك غالي عليا جدا جدا وان مشاعري ليك مبتتوصفش ودايما أنا بتمنى افضل اشوفك مبسوط واكون موجوده في كل لحظه حلوه في حياتك ربنا يخليك ليا ويبعد عنك اي حاجه ممكن تزعلك ويكتبلك دايما الخير والفرح اللي تستحقه</p>
 
-            أتمنى السنة الجديدة من عمرك تكون أجمل من كل اللي فات،
-            وتحقق فيها كل اللي نفسك فيه.
-            <br><br>
+    <p>وأهم حاجه في يومك ده عايزاك تعرف إن في حد بيتمنى لك كل الخير من قلبه وبيحبك جدا جدا وانا الشخص ده 🥹🤍</p>
 
-            Happy birthday once again ♡
-        </p>
-
-    </div>
-
-    <a class="btn" href="#coming">
-        Continue ♡
-    </a>
-
+    <p class="english" style="text-align:center;font-size:25px">
+      Happy 20th birthday my love, I hope this year is as beautiful as you are to me. 🤍🎂
+    </p>
+    <div style="text-align:center"><a class="btn" href="#coming">Continue ♡</a></div>
+  </div>
 </section>
-
-
-<!-- COUNTDOWN -->
 
 <section id="coming">
-
-    <h2 class="count-title">Until your birthday ♡</h2>
-
+  <div class="wrap fade">
+    <h2 class="english">Your Special Day</h2>
+    <p class="sub">A little countdown to the most beautiful day 🤍</p>
     <div class="countdown">
-
-        <div class="time-box">
-            <span id="days">00</span>
-            <small>Days</small>
-        </div>
-
-        <div class="time-box">
-            <span id="hours">00</span>
-            <small>Hours</small>
-        </div>
-
-        <div class="time-box">
-            <span id="minutes">00</span>
-            <small>Minutes</small>
-        </div>
-
-        <div class="time-box">
-            <span id="seconds">00</span>
-            <small>Seconds</small>
-        </div>
-
+      <div class="time"><b id="days">20</b><small>DAYS</small></div>
+      <div class="time"><b id="hours">00</b><small>HOURS</small></div>
+      <div class="time"><b id="mins">00</b><small>MINUTES</small></div>
+      <div class="time"><b id="secs">00</b><small>SECONDS</small></div>
     </div>
-
-    <a class="btn" href="#memories">
-        See our memories ♡
-    </a>
-
+    <div class="loader"><span></span></div>
+    <a class="btn" href="#memories">Me when I think of you ♡</a>
+  </div>
 </section>
-
-
-<!-- MEMORIES -->
 
 <section id="memories">
+  <div class="wrap fade">
+    <h2 class="english">me when i think of you</h2>
+    <p class="sub">Some little moments that became my favorite memories.</p>
+    <div class="memories">
 
-    <h2 class="memories-title">Our memories ♡</h2>
+      <div class="photo">
+        <img src="images/images/photo1.png" alt="Memory 1" onerror="this.src='photo1.png'">
+      </div>
 
-    <p style="margin-bottom:30px;">
-        A few moments worth keeping forever.
-    </p>
+      <div class="photo">
+        <img src="images/images/photo2.png" alt="Memory 2" onerror="this.src='photo2.png'">
+      </div>
 
-    <div class="gallery">
+      <div class="photo">
+        <img src="images/images/photo3.png" alt="Memory 3" onerror="this.src='photo3.png'">
+      </div>
 
-        <img src="images/images/photo1.png" alt="Memory 1">
-        <img src="images/images/photo2.png" alt="Memory 2">
-        <img src="images/images/photo3.png" alt="Memory 3">
-        <img src="images/images/photo4.png" alt="Memory 4">
-        <img src="images/images/photo5.png" alt="Memory 5">
-        <img src="images/images/photo6.png" alt="Memory 6">
+      <div class="photo">
+        <img src="images/images/photo4.png" alt="Memory 4" onerror="this.src='photo4.png'">
+      </div>
+
+      <div class="photo">
+        <img src="images/images/photo5.png" alt="Memory 5" onerror="this.src='photo5.png'">
+      </div>
+
+      <div class="photo">
+        <img src="images/images/photo6.png" alt="Memory 6" onerror="this.src='photo6.png'">
+      </div>
 
     </div>
-
-    <a class="btn" href="#song">
-        One more thing ♡
-    </a>
-
+    <a class="btn" href="#song">Our Song ♡</a>
+  </div>
 </section>
-
-
-<!-- SONG -->
 
 <section id="song">
-
-    <div class="song-card">
-
-        <div class="vinyl">
-            <div class="vinyl-center"></div>
+  <div class="wrap fade">
+    <h2 class="english">Song Reminds Me of You</h2>
+    <p class="sub">Press play and listen to our vibe 🤍</p>
+    
+    <div class="player-card">
+      <div class="vinyl-container">
+        <div class="visualizer-ring"></div>
+        <div class="vinyl-disc" id="vinyl">
+          <div class="vinyl-center">CAS</div>
         </div>
+      </div>
+      
+      <div class="song-info english">
+        <h3 class="song-title">Sweet</h3>
+        <p class="artist-name">Cigarettes After Sex</p>
+      </div>
 
-        <h2>Our song ♡</h2>
-
-        <p style="margin-top:15px;">
-            For you, always.
-        </p>
-
-        <iframe
-            src="https://www.youtube.com/embed/pZ31pyTZdh0?enablejsapi=1&autoplay=0&loop=1&playlist=pZ31pyTZdh0"
-            allow="autoplay">
-        </iframe>
-
-        <!-- IMPORTANT:
-             This button goes to the FOREVER slide,
-             because FOREVER is the second-last slide. -->
-
-        <a class="btn" href="#forever">
-            One last thing ♡
-        </a>
-
+      <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
     </div>
 
+    <!-- YouTube Hidden Audio Player -->
+    <iframe id="yt-player-hidden" 
+      src="https://www.youtube.com/embed/pZ31pyTZdh0?enablejsapi=1&autoplay=0&loop=1&playlist=pZ31pyTZdh0" 
+      allow="autoplay">
+    </iframe>
+
+    <a class="btn" href="#forever">Continue ♡</a>
+  </div>
 </section>
 
-
-<!-- FOREVER — SECOND LAST SLIDE -->
-
+<!-- القسم التفاعلي الجديد (قبل الأخير) -->
 <section id="forever">
-
-    <div class="forever-card">
-
-        <p class="important">
-            ✦ IMPORTANT QUESTION ✦
-        </p>
-
-        <h2 class="forever-title">
-            Will you stay with me forever?
-        </h2>
-
-        <div class="forever-image">
-
-            <!-- YOUR IMAGE NAME IS EXACTLY:
-                 forever.png.png
-            -->
-
-            <img
-                src="forever.png.png"
-                alt="Forever"
-                onerror="this.style.display='none'; document.getElementById('foreverPlaceholder').style.display='flex';"
-            >
-
-            <div
-                class="forever-placeholder"
-                id="foreverPlaceholder"
-                style="display:none;"
-            >
-                <span>🤍</span>
-                Add your photo here
-            </div>
-
-        </div>
-
-        <p class="question">
-            Will you stay with me forever? ♡
-        </p>
-
-        <div class="answer-buttons">
-
-            <button class="yes-btn" onclick="sayYes()">
-                Yes! 💗
-            </button>
-
-            <button class="yes-btn" onclick="sayYes()">
-                I knew you would say yes!
-            </button>
-
-        </div>
-
-        <div class="yes-message" id="yesMessage">
-            I knew it 🤍
-            <br>
-            ♡ ♡ ♡
-        </div>
-
+  <div class="wrap fade">
+    <div class="question-subtag english">✦ IMPORTANT QUESTION ✦</div>
+    <h2 class="english" style="font-size: clamp(38px, 6vw, 65px); margin-bottom: 20px;">Will you stay with me forever?</h2>
+    
+    <div class="forever-img-wrapper">
+      <img src="forever.png.png" alt="Forever Image" onerror="tryForeverPath(this)">
     </div>
 
+    <div class="interactive-yes-area">
+      <button class="yes-pink-btn" onclick="sayYes()">Yes!</button>
+      <div class="response-tag" id="responseTag">Knew you would say yes!</div>
+    </div>
+    
+    <br><br>
+    <a class="btn" href="#final">One last thing ♡</a>
+  </div>
 </section>
-
-
-<!-- FINAL — LAST SLIDE -->
 
 <section id="final">
-
-    <img
-        class="final-image"
-        src="finale.png"
-        alt="A special moment"
-        onerror="
-        if(!this.dataset.try){
-            this.dataset.try='1';
-            this.src='images/images/finale.png';
-        }else if(this.dataset.try==='1'){
-            this.dataset.try='2';
-            this.src='Finale.png';
-        }else{
-            this.style.display='none';
-        }"
-    >
-
-    <h2 class="final-title">
-        A Moment For You ♡
-    </h2>
-
-    <p class="final-text">
-        And if you ever forget how special you are,
-        come back here and remember that someone
-        is always wishing the best for you.
-        <br><br>
-        Happy Birthday 🤍
-    </p>
-
+  <div class="wrap fade">
+    <h2 class="english">A Moment For You</h2>
+    <div class="final-photo" id="finalPhotoCard">
+      <img src="finale.png" id="finalImg" alt="Our favorite photo" onerror="tryNextFinalePath(this)">
+      <div class="finale-hearts-box" id="finalHeartsBox"></div>
+    </div>
+    <p class="note">كل عام وانت حبيبي، وكل عام وانت أجمل صدفة وأحلى ذكرى وأغلى شخص. أتمنى تكون سنتك العشرين بداية لكل شيء جميل تستحقه. 🤍</p>
+    <div class="heart">♡ ♡ ♡</div>
+    <div class="english" style="font-size:25px">Happy 20th Birthday, My Love 🤍🎂</div>
+  </div>
 </section>
 
-
 <script>
+// وظيفة إطفاء الشموع مع ظهور الهدية والدبدوب
+let isCandleBlown = false;
 
-/* CANDLES */
+function blowCandles() {
+  if (isCandleBlown) return;
+  isCandleBlown = true;
+  
+  const flames = document.querySelectorAll('.flame-item');
+  flames.forEach(flame => flame.classList.add('off'));
+  
+  document.getElementById('wishHint').textContent = "Make a wish... ✨";
+  
+  try {
+    let ctx = new (window.AudioContext || window.webkitAudioContext)();
+    let osc = ctx.createOscillator();
+    let gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+    gain.gain.setValueAtTime(0.1, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.8);
+  } catch(e){}
 
-function blowCandles(){
-
-    document.querySelectorAll('.flame').forEach(flame=>{
-        flame.style.display='none';
-    });
-
-    document.getElementById('gift').style.display='block';
+  setTimeout(() => {
+    document.getElementById('giftArea').style.display = 'block';
+  }, 400);
 }
 
-
-/* COUNTDOWN */
-
+// العد التنازلي
 const birthday = new Date("2026-09-06T00:00:00").getTime();
 
-function updateCountdown(){
+function tick(){
+  const now = Date.now();
+  let diff = Math.max(0, birthday-now);
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
 
-    const now = new Date().getTime();
-    const distance = birthday - now;
+  document.getElementById("days").textContent=String(d).padStart(2,"0");
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("mins").textContent=String(m).padStart(2,"0");
+  document.getElementById("secs").textContent=String(s).padStart(2,"0");
+}
+tick();
+setInterval(tick,1000);
 
-    if(distance <= 0){
+// تشغيل اغنية يوتيوب Cigarettes After Sex - Sweet
+let isYtPlaying = false;
 
-        document.getElementById("days").textContent="00";
-        document.getElementById("hours").textContent="00";
-        document.getElementById("minutes").textContent="00";
-        document.getElementById("seconds").textContent="00";
+function togglePlay() {
+  const iframe = document.getElementById("yt-player-hidden").contentWindow;
+  const vinyl = document.getElementById("vinyl");
+  const playBtn = document.getElementById("playBtn");
 
-        return;
+  if (!isYtPlaying) {
+    iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    vinyl.classList.add("playing");
+    playBtn.textContent = "❚❚";
+    isYtPlaying = true;
+  } else {
+    iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    vinyl.classList.remove("playing");
+    playBtn.textContent = "▶";
+    isYtPlaying = false;
+  }
+}
+
+// التفاعل مع زر Yes
+function sayYes() {
+  document.getElementById('responseTag').style.display = 'inline-block';
+}
+
+// معالجة مسارات صوة forever.png.png
+let foreverAttempt = 0;
+function tryForeverPath(img) {
+  foreverAttempt++;
+  if (foreverAttempt === 1) {
+    img.src = "images/images/forever.png.png";
+  } else if (foreverAttempt === 2) {
+    img.src = "forever.png";
+  }
+}
+
+// معالجة مسارات الصورة الأخيرة finale.png
+let finaleAttempt = 0;
+function tryNextFinalePath(img) {
+  finaleAttempt++;
+  if (finaleAttempt === 1) {
+    img.src = "images/images/finale.png";
+  } else if (finaleAttempt === 2) {
+    img.src = "Finale.png";
+  } else {
+    img.style.display = 'none';
+    const card = document.getElementById('finalPhotoCard');
+    card.style.background = 'linear-gradient(135deg, #ff758c, #ff7eb3)';
+    card.style.display = 'flex';
+    card.style.alignItems = 'center';
+    card.style.justifyContent = 'center';
+    
+    if(!document.getElementById('finaleCardText')) {
+      const txt = document.createElement('div');
+      txt.id = 'finaleCardText';
+      txt.innerHTML = '<h2 style="font-size:35px; color:#fff; text-shadow:0 0 10px rgba(0,0,0,0.3);">finale.png ❤️</h2>';
+      card.appendChild(txt);
     }
-
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor(
-        (distance % (1000*60*60*24)) / (1000*60*60)
-    );
-
-    const minutes = Math.floor(
-        (distance % (1000*60*60)) / (1000*60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000*60)) / 1000
-    );
-
-    document.getElementById("days").textContent =
-        String(days).padStart(2,"0");
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2,"0");
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2,"0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2,"0");
+  }
 }
 
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-
-/* YES BUTTON */
-
-function sayYes(){
-
-    document.getElementById("yesMessage").style.display="block";
-
-    for(let i=0;i<35;i++){
-
-        const heart=document.createElement("div");
-
-        heart.className="burst-heart";
-        heart.textContent="♡";
-
-        heart.style.left="50%";
-        heart.style.top="50%";
-
-        heart.style.setProperty(
-            "--x",
-            `${Math.random()*600-300}px`
-        );
-
-        heart.style.setProperty(
-            "--y",
-            `${Math.random()*600-300}px`
-        );
-
-        document.body.appendChild(heart);
-
-        setTimeout(()=>{
-            heart.remove();
-        },1500);
-    }
+// إنشاء القلوب المتحركة للقسم الأخير
+function generateFinaleHearts() {
+  const box = document.getElementById('finalHeartsBox');
+  if(!box) return;
+  const heart = document.createElement('div');
+  heart.classList.add('f-heart');
+  heart.innerHTML = '❤️';
+  heart.style.left = Math.random() * 90 + 5 + '%';
+  heart.style.animationDuration = Math.random() * 2 + 2 + 's';
+  heart.style.fontSize = Math.random() * 15 + 18 + 'px';
+  box.appendChild(heart);
+  setTimeout(() => heart.remove(), 3000);
 }
+setInterval(generateFinaleHearts, 400);
 
-
-/* FLOATING HEARTS */
-
-function createHeart(){
-
-    const heart=document.createElement("div");
-
-    heart.className="floating-heart";
-    heart.textContent="♡";
-
-    heart.style.left=Math.random()*100+"vw";
-
-    heart.style.fontSize=
-        (12+Math.random()*20)+"px";
-
-    heart.style.animationDuration=
-        (6+Math.random()*7)+"s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },13000);
+// القلوب المتساقطة العامة
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart-particle');
+  heart.innerHTML = '🤍';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+  heart.style.fontSize = Math.random() * 8 + 12 + 'px';
+  document.body.appendChild(heart);
+  
+  setTimeout(() => {
+    heart.remove();
+  }, 7000);
 }
-
-setInterval(createHeart,900);
-
+setInterval(createHeart, 450);
 </script>
 
 </body>
