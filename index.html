@@ -10,16 +10,21 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:#08060b;color:#fff;
-  font-family:'Amiri',serif;overflow-x:hidden;
+  margin:0;background:#0d0612;color:#fff;
+  font-family:'Amiri',serif;overflow-x:hidden;position:relative;
 }
+
+/* الخلفية المدمجة بالوردي الرومانسي */
 body:before{
   content:"";position:fixed;inset:0;z-index:-2;
   background:
-    radial-gradient(circle at 20% 20%,rgba(155,82,137,.20),transparent 28%),
-    radial-gradient(circle at 80% 70%,rgba(112,60,110,.18),transparent 30%),
-    linear-gradient(135deg,#09060d,#1b0d1c 48%,#08060b);
+    radial-gradient(circle at 20% 20%,rgba(219, 112, 147, 0.28),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(186, 85, 211, 0.22),transparent 45%),
+    radial-gradient(circle at 50% 50%,rgba(255, 182, 193, 0.15),transparent 50%),
+    linear-gradient(135deg,#0d0612,#210b25 48%,#0a050e);
 }
+
+/* نجوم تتلألأ */
 body:after{
   content:"";position:fixed;inset:0;z-index:-1;opacity:.55;
   background-image:
@@ -34,45 +39,61 @@ body:after{
 }
 @keyframes stars{to{transform:translateY(-30px)}}
 
+/* تساقط القلوب */
+.heart-particle {
+  position: fixed;
+  top: -10%;
+  font-size: 16px;
+  color: rgba(255, 182, 193, 0.65);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
 section{
   min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:60px 18px;position:relative;
+  padding:60px 18px;position:relative;z-index:1;
 }
 .wrap{width:min(900px,94vw);text-align:center}
 .english{font-family:'Cormorant Garamond',serif;direction:ltr}
 h1,h2{font-family:'Cormorant Garamond',serif;font-weight:600}
 h1{font-size:clamp(54px,10vw,100px);margin:0 0 8px}
 h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
-.sub{color:#ddd0dc;font-size:18px}
+.sub{color:#edd2e3;font-size:18px}
 .heart{font-size:22px;letter-spacing:5px;margin:22px 0}
 .btn{
-  display:inline-block;border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.07);color:white;border-radius:999px;
+  display:inline-block;border:1px solid rgba(255,192,203,.35);
+  background:rgba(255,255,255,.08);color:white;border-radius:999px;
   padding:12px 27px;text-decoration:none;cursor:pointer;
   transition:.3s;backdrop-filter:blur(8px);font-family:inherit;font-size:16px;
 }
-.btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.13)}
+.btn:hover{transform:translateY(-3px);background:rgba(255,182,193,.25)}
 .card{
   width:min(760px,94vw);max-height:76vh;overflow:auto;text-align:right;
   padding:35px 34px;border:1px solid rgba(255,255,255,.14);
-  background:rgba(15,10,17,.64);box-shadow:0 20px 80px rgba(0,0,0,.35);
-  backdrop-filter:blur(12px);border-radius:4px;
+  background:rgba(20,10,24,.68);box-shadow:0 20px 80px rgba(0,0,0,.4);
+  backdrop-filter:blur(12px);border-radius:12px;
 }
-.card::-webkit-scrollbar{width:4px}.card::-webkit-scrollbar-thumb{background:#8e6a89;border-radius:8px}
-.card p{font-size:20px;line-height:2;margin:0 0 22px;color:#eee5ed}
+.card::-webkit-scrollbar{width:4px}.card::-webkit-scrollbar-thumb{background:#b178a2;border-radius:8px}
+.card p{font-size:20px;line-height:2;margin:0 0 22px;color:#f3e8f4}
 .card .title{text-align:center;font-family:'Cormorant Garamond',serif;font-size:44px;margin-bottom:20px;direction:ltr}
 .fade{animation:fadeUp 1.2s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
 
 .loader{
-  width:260px;height:8px;border-radius:10px;background:#2d2430;overflow:hidden;margin:25px auto;
+  width:260px;height:8px;border-radius:10px;background:#351f38;overflow:hidden;margin:25px auto;
 }
-.loader span{display:block;height:100%;width:0;background:#eee;animation:load 2.4s forwards}
+.loader span{display:block;height:100%;width:0;background:#ffc0cb;animation:load 2.4s forwards}
 @keyframes load{to{width:100%}}
 
 .countdown{display:flex;gap:12px;justify-content:center;direction:ltr;margin:28px 0}
-.time{min-width:82px;padding:14px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px}
-.time b{font:600 31px 'Cormorant Garamond';display:block}.time small{color:#cdbdca}
+.time{min-width:82px;padding:14px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,192,203,.2);border-radius:8px}
+.time b{font:600 31px 'Cormorant Garamond';display:block}.time small{color:#e8cbe0}
 
 .memories{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:25px auto}
 .photo{
@@ -87,6 +108,114 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
 .photo:nth-child(5){transform:rotate(-1deg)}
 .photo:nth-child(6){transform:rotate(3deg);margin-top:10px}
 .photo img{width:100%;height:100%;object-fit:cover}
+
+/* مشغل الأغنية والدائرة المتحركة */
+.player-card {
+  background: rgba(25, 12, 30, 0.65);
+  border: 1px solid rgba(255, 182, 193, 0.25);
+  backdrop-filter: blur(15px);
+  padding: 35px 25px;
+  border-radius: 20px;
+  max-width: 450px;
+  margin: 30px auto;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+.vinyl-container {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinyl-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #333 18%, #111 20%, #222 40%, #111 60%, #222 80%, #000 100%);
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 8s linear infinite;
+  animation-play-state: paused;
+}
+.vinyl-disc.playing {
+  animation-play-state: running;
+}
+.vinyl-center {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #ffb6c1;
+  border: 4px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+.visualizer-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 182, 193, 0.4);
+  animation: pulseRing 2s ease-in-out infinite alternate;
+  opacity: 0.5;
+}
+.playing + .visualizer-ring {
+  opacity: 1;
+  animation: pulseRing 0.8s ease-in-out infinite alternate;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes pulseRing {
+  0% { transform: scale(0.98); border-color: rgba(255, 182, 193, 0.3); }
+  100% { transform: scale(1.06); border-color: rgba(255, 182, 193, 0.8); box-shadow: 0 0 15px rgba(255,182,193,0.4); }
+}
+
+.song-info {
+  margin-bottom: 20px;
+}
+.song-title {
+  font-size: 26px;
+  margin: 0 0 5px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+}
+.artist-name {
+  font-size: 15px;
+  color: #e2b2d4;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 1px;
+}
+
+.play-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #ffb6c1;
+  color: #111;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+}
+.play-btn:hover {
+  transform: scale(1.08);
+  background: #fff;
+}
 
 .final-photo{
   width:min(500px,90vw);aspect-ratio:4/3;margin:25px auto;
@@ -153,13 +282,14 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
       <div class="time"><b id="secs">00</b><small>SECONDS</small></div>
     </div>
     <div class="loader"><span></span></div>
-    <a class="btn" href="#memories">Our memories ♡</a>
+    <a class="btn" href="#memories">Me when I think of you ♡</a>
   </div>
 </section>
 
+<!-- تم تعديل العنوان هنا بناءً على طلبك -->
 <section id="memories">
   <div class="wrap fade">
-    <h2 class="english">Our Memories</h2>
+    <h2 class="english">me when i think of you</h2>
     <p class="sub">Some little moments that became my favorite memories.</p>
     <div class="memories">
 
@@ -188,6 +318,34 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
       </div>
 
     </div>
+    <a class="btn" href="#song">Our Song ♡</a>
+  </div>
+</section>
+
+<!-- الشريحة الجديدة الخاصة بالأغنية ومُشغل الموسيقى -->
+<section id="song">
+  <div class="wrap fade">
+    <h2 class="english">Song Reminds Me of You</h2>
+    <p class="sub">Press play and listen to our vibe 🤍</p>
+    
+    <div class="player-card">
+      <div class="vinyl-container">
+        <div class="visualizer-ring"></div>
+        <div class="vinyl-disc" id="vinyl">
+          <div class="vinyl-center">CAS</div>
+        </div>
+      </div>
+      
+      <div class="song-info english">
+        <h3 class="song-title">Sweet</h3>
+        <p class="artist-name">Cigarettes After Sex</p>
+      </div>
+
+      <!-- ملف الصوت مع زر التشغيل -->
+      <audio id="bg-song" src="https://files.catbox.moe/k3t8st.mp3" loop></audio>
+      <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+    </div>
+
     <a class="btn" href="#final">One last thing ♡</a>
   </div>
 </section>
@@ -205,6 +363,7 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
 </section>
 
 <script>
+// العد التنازلي
 const birthday = new Date("2026-09-06T00:00:00").getTime();
 
 function tick(){
@@ -220,9 +379,41 @@ function tick(){
   document.getElementById("mins").textContent=String(m).padStart(2,"0");
   document.getElementById("secs").textContent=String(s).padStart(2,"0");
 }
-
 tick();
 setInterval(tick,1000);
+
+// تشغيل الأغنية وتحريك الدائرة
+const audio = document.getElementById("bg-song");
+const vinyl = document.getElementById("vinyl");
+const playBtn = document.getElementById("playBtn");
+
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+    vinyl.classList.add("playing");
+    playBtn.textContent = "❚❚";
+  } else {
+    audio.pause();
+    vinyl.classList.remove("playing");
+    playBtn.textContent = "▶";
+  }
+}
+
+// إنشاء القلوب المتساقطة تلقائياً
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart-particle');
+  heart.innerHTML = '🤍';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+  heart.style.fontSize = Math.random() * 10 + 12 + 'px';
+  document.body.appendChild(heart);
+  
+  setTimeout(() => {
+    heart.remove();
+  }, 7000);
+}
+setInterval(createHeart, 450);
 </script>
 
 </body>
