@@ -319,13 +319,45 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
 .final-photo{
   width:min(500px,90vw);aspect-ratio:4/3;margin:25px auto;
   border:8px solid #eee9e7;background:#eee9e7;overflow:hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 8px;
 }
-.final-photo img{width:100%;height:100%;object-fit:cover}
+.final-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+
+.finale-hearts-box {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+.f-heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  color: #ff758c;
+  animation: floatHeart 3s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
+  100% { transform: translateY(-300px) scale(1.2); opacity: 0; }
+}
+
 .note{font-size:22px;line-height:1.9;color:#eee0ec;max-width:700px;margin:auto}
 
 .scroll{position:absolute;bottom:22px;font-size:13px;color:#aaa;letter-spacing:2px}
 .arrow{display:block;margin-top:6px;animation:bounce 1.5s infinite}
 @keyframes bounce{50%{transform:translateY(6px)}}
+
+#yt-player-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
 
 @media(max-width:600px){
   .card{padding:25px 20px}.card p{font-size:17px;line-height:2}
@@ -419,27 +451,27 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
     <div class="memories">
 
       <div class="photo">
-        <img src="images/images/photo1.png" alt="Memory 1">
+        <img src="images/images/photo1.png" alt="Memory 1" onerror="this.src='photo1.png'">
       </div>
 
       <div class="photo">
-        <img src="images/images/photo2.png" alt="Memory 2">
+        <img src="images/images/photo2.png" alt="Memory 2" onerror="this.src='photo2.png'">
       </div>
 
       <div class="photo">
-        <img src="images/images/photo3.png" alt="Memory 3">
+        <img src="images/images/photo3.png" alt="Memory 3" onerror="this.src='photo3.png'">
       </div>
 
       <div class="photo">
-        <img src="images/images/photo4.png" alt="Memory 4">
+        <img src="images/images/photo4.png" alt="Memory 4" onerror="this.src='photo4.png'">
       </div>
 
       <div class="photo">
-        <img src="images/images/photo5.png" alt="Memory 5">
+        <img src="images/images/photo5.png" alt="Memory 5" onerror="this.src='photo5.png'">
       </div>
 
       <div class="photo">
-        <img src="images/images/photo6.png" alt="Memory 6">
+        <img src="images/images/photo6.png" alt="Memory 6" onerror="this.src='photo6.png'">
       </div>
 
     </div>
@@ -465,12 +497,14 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
         <p class="artist-name">Cigarettes After Sex</p>
       </div>
 
-      <audio id="bg-song" loop crossorigin="anonymous">
-        <source src="https://cdns-preview-d.dzcdn.net/stream/c-d21884e934a31742490ec964ea490897-4.mp3" type="audio/mpeg">
-        <source src="https://files.catbox.moe/k3t8st.mp3" type="audio/mpeg">
-      </audio>
       <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
     </div>
+
+    <!-- YouTube Hidden Audio Player -->
+    <iframe id="yt-player-hidden" 
+      src="https://www.youtube.com/embed/pZ31pyTZdh0?enablejsapi=1&autoplay=0&loop=1&playlist=pZ31pyTZdh0" 
+      allow="autoplay">
+    </iframe>
 
     <a class="btn" href="#final">One last thing ♡</a>
   </div>
@@ -479,8 +513,9 @@ h2{font-size:clamp(40px,7vw,70px);margin:0 0 20px}
 <section id="final">
   <div class="wrap fade">
     <h2 class="english">A Moment For You</h2>
-    <div class="final-photo">
-      <img src="images/images/final.png" alt="Our favorite photo">
+    <div class="final-photo" id="finalPhotoCard">
+      <img src="finale.png" id="finalImg" alt="Our favorite photo" onerror="tryNextFinalePath(this)">
+      <div class="finale-hearts-box" id="finalHeartsBox"></div>
     </div>
     <p class="note">كل عام وانت حبيبي، وكل عام وانت أجمل صدفة وأحلى ذكرى وأغلى شخص. أتمنى تكون سنتك العشرين بداية لكل شيء جميل تستحقه. 🤍</p>
     <div class="heart">♡ ♡ ♡</div>
@@ -501,7 +536,6 @@ function blowCandles() {
   
   document.getElementById('wishHint').textContent = "Make a wish... ✨";
   
-  // نغمة بسيطة ولطيفة عند إطفاء الشموع
   try {
     let ctx = new (window.AudioContext || window.webkitAudioContext)();
     let osc = ctx.createOscillator();
@@ -539,44 +573,68 @@ function tick(){
 tick();
 setInterval(tick,1000);
 
-// تشغيل الصوت والدائرة الموسيقية
-const audio = document.getElementById("bg-song");
-const vinyl = document.getElementById("vinyl");
-const playBtn = document.getElementById("playBtn");
-let synthAudioCtx = null;
+// تشغيل اغنية يوتيوب Cigarettes After Sex - Sweet
+let isYtPlaying = false;
 
 function togglePlay() {
-  if (audio.paused) {
-    let playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        vinyl.classList.add("playing");
-        playBtn.textContent = "❚❚";
-      }).catch(err => {
-        // في حال منع المتصفح تشغيل الصوت الخارجي تشغيل نغمة خلفية بديلة تلقائياً
-        startSynthMusic();
-        vinyl.classList.add("playing");
-        playBtn.textContent = "❚❚";
-      });
-    }
+  const iframe = document.getElementById("yt-player-hidden").contentWindow;
+  const vinyl = document.getElementById("vinyl");
+  const playBtn = document.getElementById("playBtn");
+
+  if (!isYtPlaying) {
+    iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    vinyl.classList.add("playing");
+    playBtn.textContent = "❚❚";
+    isYtPlaying = true;
   } else {
-    audio.pause();
-    if (synthAudioCtx) synthAudioCtx.suspend();
+    iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     vinyl.classList.remove("playing");
     playBtn.textContent = "▶";
+    isYtPlaying = false;
   }
 }
 
-// نغمة موسيقية بديلة ناعمة
-function startSynthMusic() {
-  if(!synthAudioCtx) {
-    synthAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+// معالجة مسارات الصورة الأخيرة finale.png
+let finaleAttempt = 0;
+function tryNextFinalePath(img) {
+  finaleAttempt++;
+  if (finaleAttempt === 1) {
+    img.src = "images/images/finale.png";
+  } else if (finaleAttempt === 2) {
+    img.src = "Finale.png";
   } else {
-    synthAudioCtx.resume();
+    img.style.display = 'none';
+    const card = document.getElementById('finalPhotoCard');
+    card.style.background = 'linear-gradient(135deg, #ff758c, #ff7eb3)';
+    card.style.display = 'flex';
+    card.style.alignItems = 'center';
+    card.style.justifyContent = 'center';
+    
+    if(!document.getElementById('finaleCardText')) {
+      const txt = document.createElement('div');
+      txt.id = 'finaleCardText';
+      txt.innerHTML = '<h2 style="font-size:35px; color:#fff; text-shadow:0 0 10px rgba(0,0,0,0.3);">finale.png ❤️</h2>';
+      card.appendChild(txt);
+    }
   }
 }
 
-// القلوب المتساقطة
+// إنشاء القلوب المتحركة للقسم الأخير
+function generateFinaleHearts() {
+  const box = document.getElementById('finalHeartsBox');
+  if(!box) return;
+  const heart = document.createElement('div');
+  heart.classList.add('f-heart');
+  heart.innerHTML = '❤️';
+  heart.style.left = Math.random() * 90 + 5 + '%';
+  heart.style.animationDuration = Math.random() * 2 + 2 + 's';
+  heart.style.fontSize = Math.random() * 15 + 18 + 'px';
+  box.appendChild(heart);
+  setTimeout(() => heart.remove(), 3000);
+}
+setInterval(generateFinaleHearts, 400);
+
+// القلوب المتساقطة العامة
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart-particle');
